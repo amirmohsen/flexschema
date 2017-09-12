@@ -1,0 +1,106 @@
+{
+  "name": "flexschema",
+  "version": "0.0.0",
+  "repository": "https://github.com/amirmohsen/flexschema",
+  "description": "A highly flexible and dynamic schema library",
+  "scripts": {
+    "dev": "node --preserve-symlinks ./build --dev",
+    "build": "node --preserve-symlinks ./build",
+    "prepublishOnly": "npm run build",
+    "test": "jest"
+  },
+  "files": [
+    "dist",
+    "server.js",
+    "client.js"
+  ],
+  "keywords": [
+    "flexverse",
+    "schema"
+  ],
+  "author": {
+    "name": "Amir Abdolrazaghi",
+    "email": "amir@flexverse.tech"
+  },
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">= 6.0.0",
+    "npm": ">= 3.0.0"
+  },
+  "bugs": {
+    "url": "https://github.com/amirmohsen/flexschema/issues"
+  },
+  "homepage": "https://github.com/amirmohsen/flexschema#readme",
+  "babel": {
+    "presets": [
+      [
+        "latest-node6",
+        {
+          "object-rest": true
+        }
+      ],
+      "react"
+    ],
+    "plugins": [
+      "syntax-decorators",
+      "transform-decorators-legacy",
+      "transform-class-properties",
+      "transform-object-rest-spread"
+    ]
+  },
+  "dependencies": {
+    "clone": "^2.1.1",
+    "common-tags": "^1.4.0",
+    "es6-error": "^4.0.2",
+    "extend": "^3.0.0",
+    "flexstore": "^0.0.1",
+    "json-stringify-safe": "^5.0.1",
+    "lodash": "^4.17.4",
+    "object-path": "^0.11.4",
+    "object-path-immutable": "^0.5.1",
+    "pascal-case": "^2.0.1",
+    "path": "^0.12.7",
+    "validator": "^7.0.0"
+  },
+  "devDependencies": {
+    "assets-webpack-plugin": "^3.5.1",
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-jest": "^19.0.0",
+    "babel-loader": "^6.4.1",
+    "babel-plugin-module-resolver": "^2.5.0",
+    "babel-plugin-syntax-decorators": "^6.13.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-env": "^1.3.3",
+    "babel-preset-latest-node6": "^0.1.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-react-optimize": "^1.0.1",
+    "clean-webpack-plugin": "^0.1.16",
+    "css-loader": "^0.28.0",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "file-loader": "^0.11.1",
+    "flexbuilder": "^0.0.0",
+    "jest": "^19.0.2",
+    "postcss-cssnext": "^2.10.0",
+    "postcss-import": "^9.1.0",
+    "postcss-loader": "^1.3.3",
+    "postcss-variables-loader": "^2.1.3",
+    "progress-bar-webpack-plugin": "^1.9.3",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-hot-loader": "^3.0.0-beta.6",
+    "react-svg-loader": "^1.1.1",
+    "source-map-loader": "^0.2.1",
+    "source-map-support": "^0.4.14",
+    "style-loader": "^0.16.1",
+    "uglifyjs-webpack-plugin": "^0.4.2",
+    "url-loader": "^0.5.8",
+    "webpack": "^2.3.3",
+    "webpack-dev-server": "^2.4.2",
+    "webpack-node-externals": "^1.5.4",
+    "yargs": "^7.0.2"
+  }
+}
