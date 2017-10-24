@@ -1,6 +1,10 @@
 import FlexSchemaError from './Error';
-import {set, get, del, push} from 'object-path';
-import {set as setImmutable, del as delImmutable, push as pushImmutable} from 'object-path-immutable';
+import objectPath from 'object-path';
+import objectPathImmutable from 'object-path-immutable';
+
+const
+	{set, get, del, push} = objectPath,
+	{set: setImmutable, del: delImmutable, push: pushImmutable} = objectPathImmutable;
 
 export default class Path {
 

@@ -1,9 +1,13 @@
 import FlexSchemaError from '../Error';
 import Loader from '../Loader';
-import get from 'lodash/get';
-import set from 'lodash/set';
-import has from 'lodash/has';
+import lodash from 'lodash';
 import type from '../Schema/type';
+
+const {
+	get,
+	set,
+	has
+} = lodash;
 
 export default class ProcessorStore {
 

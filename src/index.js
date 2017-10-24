@@ -11,7 +11,7 @@ import {
 	NumberSnapshot,
 	BooleanSnapshot,
 	DynamicSnapshot
-} from '../src/types';
+} from './types/index';
 import Schema from './Schema/Schema';
 
 Schema.types = {
@@ -41,7 +41,7 @@ Schema.types = {
 	}
 };
 
-export default Schema;
+export {Schema as FlexSchema};
 export {default as SchemaSnapshot} from './Schema/SchemaSnapshot';
 export {default as type} from './Schema/type';
 export {default as Error} from './Error';

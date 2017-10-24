@@ -1,5 +1,9 @@
-import isEqual from 'lodash/isEqual';
+import lodash from 'lodash';
 import stringify from 'json-stringify-safe';
+
+const {
+	isEqual
+} = lodash;
 
 export const validateOneOf = ({oneOf, data, context}) => {
 	let validated = true;
