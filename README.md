@@ -19,7 +19,7 @@ Let's say we want to setup a schema for a user object.
 
 First, we start simple:
 ```js
-const userSchema = {
+let userSchema = {
 	type: 'object',
 	shape: {
 		profile: {
@@ -52,7 +52,7 @@ let schema = FlexSchema.init({
 	name: 'user'
 });
 
-const context = schema.process({
+let context = schema.process({
 	data
 });
 
@@ -97,3 +97,56 @@ console.log(context.getErrors());
 	}
 }
 ```
+
+### Dynamic fields
+
+All fields can be functions which are evaluated at the processing/validation step.
+
+For instance, say we have a year of birth field that must not allow years beyond the current year:
+
+```js
+userSchema = {
+	type: 'object',
+	shape: {
+		profile: {
+			type: 'object',
+			shape: {
+				firstName: {
+					type: 'string',
+					min: 1,
+					max: 100
+				},
+				yearOfBirth: {
+					type: 'number',
+					min: 1850,
+					max: () => (new Date()).getFullYear() // At the time of writing, it's 2017
+				}
+			}
+		}
+	}
+};
+```
+
+Upon validation, you get:
+
+```json
+{
+	"type": "max",
+	"message": "Value must be less than or equal to 2017.",
+	"details": {
+		"context": {
+			"currentPath": {
+				"path": [
+					"profile",
+					"yearOfBirth"
+				]
+			}
+		}
+	}
+}
+```
+
+Dynamic fields can be async functions (useful when the value comes from I/O sources).
+
+FlexSchema is a very powerful schema library and boasts a long list of features. This example only covers some of the basic
+features. For a more in-depth understanding of FlexSchema, check out the [documentation](docs/index.md). 
