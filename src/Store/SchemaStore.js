@@ -1,9 +1,9 @@
 import FlexSchemaError from '../Error';
 import Loader from '../Loader';
 import type from '../Schema/type';
-import FlexStore from 'flexstore';
+import BaseStore from './BaseStore';
 
-export default class SchemaStore extends FlexStore {
+export default class SchemaStore extends BaseStore {
 
 	loader = new Loader();
 
