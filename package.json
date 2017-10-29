@@ -1,6 +1,6 @@
 {
   "name": "flexschema",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "repository": "https://github.com/amirmohsen/flexschema",
   "description": "A highly flexible and dynamic schema library",
   "scripts": {
