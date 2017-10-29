@@ -3,15 +3,12 @@
 - [Format](format.md)
 - [Usage](usage.md)
 - [Shared Fields](fields.md)
-- Types
-	- Boolean
-	- String
-	- Number
-	- Object
-	- Array
-	- Dynamic
-- Path
-- Loader
-- Resource
-- Dynamic functions
-- Store
+- [Built-in Types](types/index.md)
+- [Dynamic Schemas](dynamic.md)
+- [Path](path.md)
+- [Context](context.md)
+- [Schema Snapshot](snapshot.md)
+- [Defining Custom Types](custom.md)
+- [Resources](resources.md)
+- [References](references.md)
+- [Resolvers](resolvers.md)

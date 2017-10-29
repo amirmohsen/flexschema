@@ -38,7 +38,7 @@ Any of the fields can be a function that returns the final value.
 
 ## type
 Sets the type of the schema entry
-[Read More](types.md)
+[Read More](types/index.md)
 
 ## metadata
 An object with your own metadata. The metadata contents can be any format and
@@ -65,13 +65,13 @@ If value is undefined and "optional" is set to true, validation doesn't generate
 If set to true, null values are accepted.
 
 ## preprocessors
-An array of functions to be run on the data for pre-processing (transforming before default processing)
+An array of functions (or [method names on a custom type class](custom.md)) to be run on the data for pre-processing (transforming before default processing)
 
 ## postprocessors
-An array of functions to be run on the data for post-processing (transforming after default processing)
+An array of functions (or [method names on a custom type class](custom.md)) to be run on the data for post-processing (transforming after default processing)
 
 ## prevalidators
-An array of functions to be run on the data for pre-validating (before default validating)
+An array of functions (or [method names on a custom type class](custom.md)) to be run on the data for pre-validating (before default validating)
 
 ## postvalidators
-An array of functions to be run on the data for post-validating (after default validating)
+An array of functions (or [method names on a custom type class](custom.md)) to be run on the data for post-validating (after default validating)

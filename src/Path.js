@@ -21,7 +21,7 @@ export default class Path {
 	}
 
 	isEmpty() {
-		return this.path.length === 0;
+		return this.isRoot();
 	}
 
 	is({path}) {
