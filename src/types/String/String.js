@@ -1,9 +1,5 @@
+import SchemaPreProcessor from '../../Schema/SchemaPreProcessor';
 import Schema from '../../Schema/Schema';
-import {
-	validateMinAndMax,
-	validateCanBeEmpty,
-	validateFormat
-} from './preprocess';
 import validator from 'validator';
 
 export default class StringSchema extends Schema {
@@ -21,10 +17,38 @@ export default class StringSchema extends Schema {
 	}
 
 	_preprocessSchemaType({schema}) {
-		validateMinAndMax({schema});
-		validateCanBeEmpty({schema});
-		validateFormat({schema});
-		return schema;
+		return SchemaPreProcessor
+			.schema(schema)
+			.structure({
+				min: {
+					default: 0,
+					type: 'number',
+					validator: () => Number.isInteger(schema.min) && schema.min > 0
+				},
+				max: {
+					default: Infinity,
+					types: ['number', 'infinity'],
+					validator: () => (Number.isFinite(schema.max) || Number.isInteger(schema.max)) && schema.min < schema.max
+				},
+				format: {
+					default: '',
+					type: 'string',
+					oneOf: [
+						'',
+						'int',
+						'float',
+						'number',
+						'objectid',
+						'datetime',
+						'email'
+					]
+				},
+				canBeEmpty: {
+					default: true,
+					type: 'boolean'
+				}
+			})
+			.preprocess();
 	}
 
 	_validateData(context) {

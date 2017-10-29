@@ -24,6 +24,7 @@ export default class ObjectSchema extends Schema {
 	}
 
 	_preprocessSchemaType({schema}) {
+
 		validateSchema({schema});
 
 		if(schema.shape !== undefined) {

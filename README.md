@@ -1,6 +1,10 @@
 # FlexSchema
 FlexSchema is a highly flexible and dynamic schema library.
 
+**Instability**
+Please be warned that this is library is still quite unstable and lacks enough tests. If you do find bugs, please file
+issues or even better submit PR fixes.
+
 ## Installation
 `yarn add flexschema`
 or

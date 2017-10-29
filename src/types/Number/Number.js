@@ -1,9 +1,5 @@
 import Schema from '../../Schema/Schema';
-
-import {
-	validateMinAndMax,
-	validateNumberType
-} from './preprocess';
+import SchemaPreProcessor from '../../Schema/SchemaPreProcessor';
 
 export default class NumberSchema extends Schema {
 
@@ -39,9 +35,38 @@ export default class NumberSchema extends Schema {
 	}
 
 	_preprocessSchemaType({schema}) {
-		validateMinAndMax({schema});
-		validateNumberType({schema});
-		return schema;
+		return SchemaPreProcessor
+			.schema(schema)
+			.structure({
+				inclusiveMin: {
+					default: true,
+					type: 'boolean'
+				},
+				inclusiveMax: {
+					default: true,
+					type: 'boolean'
+				},
+				min: {
+					default: -Infinity,
+					types: ['number', 'infinity', '-infinity']
+				},
+				max: {
+					default: Infinity,
+					types: ['number', 'infinity', '-infinity'],
+					validator: () => schema.min < schema.max
+				},
+				numberType: {
+					default: 'float',
+					type: 'string',
+					oneOf: [
+						'integer',
+						'float',
+						'digit',
+						'fractional'
+					]
+				}
+			})
+			.preprocess();
 	}
 
 	_validateData(context) {
